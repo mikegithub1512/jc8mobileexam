@@ -11,10 +11,14 @@ import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import MainText from '../../components/UI/MainText/MainText'
 import PlaceInput from '../../components/PlaceInput/PlaceInput'
+import UsiaInput from '../../components/PlaceInput/UsiaInput'
+import JabatanInput from '../../components/PlaceInput/JabatanInput'
 
 class SharePlaceScreen extends Component {
     state = {
-        placeName : ''
+        placeName : '',
+        usia: '',
+        jabatan: '',
     }
 
     constructor(props) {
@@ -37,6 +41,16 @@ class SharePlaceScreen extends Component {
             placeName: val
         })
     }
+    usiaChangedHandler = (val) => {
+        this.setState({
+            usia: val
+        })
+    }
+    jabatanChangedHandler = (val) => {
+        this.setState({
+            jabatan: val
+        })
+    }
 
     // showData = items => {
     //     var arrData = []
@@ -55,11 +69,13 @@ class SharePlaceScreen extends Component {
     // }
 
     placeAddedHandler = () => {
-        var places = Fire.database().ref('places')
-        if(this.state.placeName.trim() !== ''){
+        var places = Fire.database().ref('karyawan')
+        if(this.state.placeName.trim() && this.state.usia && this.state.jabatan.trim() !== ''){
             // input data ke firebase
             places.push({
-                name: this.state.placeName
+                nama: this.state.placeName,
+                usia: this.state.usia,
+                jabatan: this.state.jabatan
             }).then(res => {
                 // ambil semua data di firebase, lempar ke redux
                 places.once('value', this.props.onCreateData, (err)=>{console.log(err)})
@@ -72,14 +88,21 @@ class SharePlaceScreen extends Component {
             <ScrollView>
                 <View style={styles.container}>
                     <MainText>
-                        <HeadingText>Input Data Karyawan !</HeadingText>
+                        <HeadingText>Input Data Karyawan</HeadingText>
                     </MainText>
                     <PlaceInput
                         placeName = {this.state.placeName}
                         onChangeText = {this.placeNameChangedHandler}
-                        
                     />
-                    <Button title='Input' onPress={this.placeAddedHandler}/>
+                    <UsiaInput
+                        usia = {this.state.usia}
+                        onChangeText = {this.usiaChangedHandler}
+                    />
+                    <JabatanInput
+                        jabatan = {this.state.jabatan}
+                        onChangeText = {this.jabatanChangedHandler}
+                    />
+                    <Button title='INPUT' onPress={this.placeAddedHandler}/>
                 </View>
             </ScrollView>
         );

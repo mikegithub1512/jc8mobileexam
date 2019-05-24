@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
@@ -22,7 +23,7 @@ class SideDrawer extends Component {
                 <TouchableOpacity onPress ={this.logOut}>
                 <View style = {styles.drawerItem}>
                     <Icon name='ios-log-out' color='#aaa' size  ={30} style={styles.drawerIcon} />
-                    <Text>Side Drawer</Text>
+                    <Text>Log out</Text>
                 </View>
             </TouchableOpacity>
             </View>

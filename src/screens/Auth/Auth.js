@@ -118,6 +118,12 @@ class AuthScreen extends Component {
                 </ButtonWithBackground>
             )
 
+            headingTextControl1 = (
+                <MainText>
+                    <HeadingText>Reyhan Raditya</HeadingText>
+                </MainText>
+            )
+
             headingTextControl = (
                 <MainText>
                     <HeadingText>Please Log In</HeadingText>
@@ -128,6 +134,7 @@ class AuthScreen extends Component {
         return (
             <ImageBackground source={imageBackground} style={styles.backgroundImage}>
                 <KeyboardAvoidingView behavior='padding' style={styles.container}>
+                    {headingTextControl1}
                     {headingTextControl}
                     <ButtonWithBackground color='#a5b4ef' onTekan={this.switchAuthModeHandler}>
                         Switch to {this.state.authMode === 'login' ? 'Signup' : 'Login'}
@@ -155,6 +162,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    heading:{
+        margin: 10
     },
     inputContainer: {
         width: '80%'
