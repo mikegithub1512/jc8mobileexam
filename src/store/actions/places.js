@@ -16,12 +16,14 @@ export const deletePlace = (key) => {
 
 export const createData = (items) => {
     var arrData = []
-        var rawData = items.val()
+    var rawData = items.val()
 
         Object.keys(rawData).forEach(id => {
             arrData.push({
                 key: id,
-                value: rawData[id].name,
+                value: rawData[id].nama,
+                value2: rawData[id].usia,
+                value3: rawData[id].jabatan,
                 image: {
                     uri: "https://freerangestock.com/sample/78746/halloween-cat-icon-means-trick-or-treat-and-autumn.jpg"
                 }
@@ -33,7 +35,6 @@ export const createData = (items) => {
         payload: arrData
     }
 }
-
 
 
 
