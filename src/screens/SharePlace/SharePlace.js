@@ -11,8 +11,8 @@ import DefaultInput from '../../components/UI/DefaultInput/DefaultInput'
 import HeadingText from '../../components/UI/HeadingText/HeadingText'
 import MainText from '../../components/UI/MainText/MainText'
 import PlaceInput from '../../components/PlaceInput/PlaceInput'
-import UsiaInput from '../../components/PlaceInput/UsiaInput'
-import JabatanInput from '../../components/PlaceInput/JabatanInput'
+import UsiaInput from '../../components/PlaceInput/Usia'
+import JabatanInput from '../../components/PlaceInput/Jabatan'
 
 class SharePlaceScreen extends Component {
     state = {
